@@ -32,6 +32,12 @@ export default {
     AddTodo,
     Filter
   },
+  mounted() {
+    this.todos = JSON.parse(localStorage.getItem("todos"));
+  },
+  updated() {
+    localStorage.setItem("todos", JSON.stringify(this.todos));
+  },
   data() {
     return {
       todos: [],
@@ -96,6 +102,6 @@ export default {
         return this.todos.filter((todo) => todo.done);
       }
     }
-  },
+  }
 }
 </script>

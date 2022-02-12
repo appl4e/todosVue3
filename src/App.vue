@@ -1,8 +1,6 @@
-
-
 <template>
-  <div class="app-container">
-    <h1 class="app-title">Vuejs todos</h1>
+  <Layout>
+    <template #todo-title>What To do?</template>
     <div class="composer">
       <AddTodo @onSubmit="addTodo()" v-model="newTodo" />
       <Filter
@@ -17,17 +15,19 @@
     <div class="todos">
       <Todo v-for="todo in filteredTodos" :todo="todo" :key="todo.id" />
     </div>
-  </div>
+  </Layout>
 </template>
 
 <script>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+import Layout from "./components/Layout.vue"
 import Todo from "./components/Todo.vue"
 import AddTodo from "./components/AddTodo.vue"
 import Filter from "./components/Filter.vue"
 export default {
   components: {
+    Layout,
     Todo,
     AddTodo,
     Filter

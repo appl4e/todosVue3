@@ -11,15 +11,15 @@
 }
 
 .composer {
-	@apply border-t-2 border-indigo-500;
+	@apply border-t-2 border-indigo-500 pt-3;
 }
 
 .composer__input {
-	@apply w-full p-5 bg-gray-100 border-none focus:outline-none focus:ring-0;
+	@apply w-full px-4 py-2 bg-gray-100 border-sky-300 border rounded focus:outline-none focus:ring-0;
 }
 
 .filter {
-	@apply flex justify-between mt-1;
+	@apply flex justify-between mt-1 border-b border-indigo-200 mb-3;
 }
 
 .filter__left {
@@ -27,11 +27,11 @@
 }
 
 .filter__button {
-	@apply text-slate-700;
+	@apply text-slate-700 pb-2 mb-0;
 }
 
 .filter__button--active {
-	@apply text-indigo-500;
+	@apply text-indigo-500 border-b border-indigo-500;
 }
 
 .filter__button--danger {
@@ -39,10 +39,11 @@
 }
 
 .todos {
-	@apply flex flex-col space-y-1;
+	@apply flex flex-col space-y-3 pr-2 max-h-[450px] overflow-y-auto;
 }
 .todo {
-	@apply flex items-center py-4 pl-4 space-x-4 transition-all duration-200 border-l-4 border-yellow-400 cursor-pointer hover:bg-gray-100;
+	@apply flex items-center py-4 pl-4 space-x-4 transition-all duration-200 border-l-4 border-yellow-400 cursor-pointer hover:bg-gray-100 border
+	bg-zinc-100 rounded;
 }
 
 .todo__status-dot {

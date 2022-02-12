@@ -5,19 +5,13 @@
     <h1 class="app-title">Vuejs todos</h1>
     <div class="composer">
       <AddTodo @onSubmit="addTodo()" v-model="newTodo" />
-      <div class="filter">
-        <div class="filter__left">
-          <button
-            class="filter__button filter__button--active"
-            @click="filterBy = 'all'"
-          >All ({{ allTodo }})</button>
-          <button class="filter__button" @click="filterBy = 'pending'">Pending ({{ pending }})</button>
-          <button class="filter__button" @click="filterBy = 'done'">Done ({{ done }})</button>
-        </div>
-        <div>
-          <button class="filter__button filter__button--danger" @click="clearTodo">Clear</button>
-        </div>
-      </div>
+      <Filter
+        v-model="filterBy"
+        :allCount="allTodo"
+        :pendingCount="pending"
+        :doneCount="done"
+        @onClear="clearTodo"
+      />
     </div>
 
     <div class="todos">
@@ -31,10 +25,12 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import Todo from "./components/Todo.vue"
 import AddTodo from "./components/AddTodo.vue"
+import Filter from "./components/Filter.vue"
 export default {
   components: {
     Todo,
-    AddTodo
+    AddTodo,
+    Filter
   },
   data() {
     return {
